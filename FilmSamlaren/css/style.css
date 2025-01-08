@@ -230,3 +230,214 @@ main .line {
     color: var(--light-silver-color);
 }
 
+#background-video {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+/* Add to Favorites Button Styles */
+button.add-to-favorites {
+    padding: 10px 20px;
+    background-color: var(--dark-color);
+    color: var(--green-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: var(--font-smaller-normal);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    align-self: center;
+    margin-top: 0;
+}
+
+button.add-to-favorites:hover {
+    background-color: var(--dark-color);
+    transform: translateY(-3px);
+    box-shadow: 0 0 10px rgb(166, 236, 152), 0 0 10px rgb(245, 230, 243);
+    border: 1px solid var(--dark-color);
+}
+
+button.add-to-favorites:active {
+    transform: translateY(1px);
+}
+
+/* Loading Spinner */
+#loadingSpinner {
+    display: none;
+    /* Hidden by default */
+    border: 4px solid var(--white-color);
+    /* Light grey */
+    border-top: 4px solid #4A90E2;
+    /* Blue */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+footer {
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 -2px 14px var(--white-color);
+}
+
+footer p {
+    color: var(--white-color);
+    font-weight: var(--font-w5);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    body {
+        font-size: var(--font-small);
+    }
+
+    #movieList,
+    #favoritesList {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .movie-item {
+        width: 65%;
+    }
+
+    #movieDetails {
+        width: 80%;
+    }
+
+    #movieDetails h2 {
+        font-size: var(--font-normal);
+        margin-bottom: 10px;
+    }
+
+    .movie-item-content span {
+        font-size: var(--font-smaller-normal);
+
+    }
+}
+
+/* Tablet */
+@media (min-width: 601px) and (max-width: 768px) {
+    body {
+        font-size: var(--font-smaller-normal);
+    }
+
+    #movieList,
+    #favoritesList {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .movie-item {
+        width: 35%;
+    }
+
+    #movieDetails {
+        width: 70%;
+    }
+}
+
+/* Small Desktop */
+@media (min-width: 769px) and (max-width: 1024px) {
+    body {
+        font-size: var(--font-normal);
+    }
+
+    main {
+
+        padding-left: 10px;
+        /* Add left padding */
+        padding-right: 10px;
+        /* Add right padding */
+    }
+
+    #movieList,
+    #favoritesList {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .movie-item {
+        width: 24%;
+    }
+
+    #movieDetails {
+        width: 60%;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    body {
+        font-size: 18px;
+    }
+
+    #movieList,
+    #favoritesList {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    main {
+
+        padding-left: 1px;
+        /* Add left padding */
+        padding-right: 1px;
+        /* Add right padding */
+    }
+
+    .movie-item {
+        width: 17%;
+    }
+
+    #movieDetails {
+        width: 50%;
+    }
+}
+
+/* Large Desktop */
+@media (min-width: 1441px) {
+    body {
+        font-size: var(--font-normal);
+    }
+
+    #movieList,
+    #favoritesList {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .movie-item {
+        width: 14%;
+    }
+
+    #movieDetails {
+        width: 50%;
+    }
+}
