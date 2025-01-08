@@ -112,3 +112,121 @@ main {
     margin-top: 17px;
 }
 
+
+
+.movie-item .movie-item-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1;
+    padding-bottom: 1px;
+    color: var(--white-color);
+}
+
+/* Movie details*/
+.movie-item-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1;
+    padding-bottom: 1px;
+    color: var(--green-color);
+}
+
+.movie-item-content p {
+    margin-top: 2px;
+    color: var(--lighter-silver-color);
+    font-weight: var(--font-w5);
+}
+
+.movie-item-content span {
+    margin: 2px 1px 14px;
+    color: var(--light-yellow-color);
+    font-size: var(--font-normal);
+    font-weight: var(--font-w6);
+}
+
+.movie-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 16px var(--green-color);
+}
+
+.movie-item img {
+    width: 90%;
+    border-radius: 8px;
+    margin: 0 auto 10px auto;
+    /* Center the image */
+}
+
+.movie-item h3 {
+    margin: 10px 0;
+    font-size: var(--font-normal);
+    flex-grow: 1;
+    color: var(--green-color);
+}
+
+.movie-item p {
+    color: var(--white-color);
+    ;
+    /* date text color */
+    font-size: var(--font-normal);
+    font-weight: var(--font-w7);
+    /* Make the date text bold */
+}
+
+#movieDetails {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: var(--transition-background);
+    /* Slight white color */
+    backdrop-filter: blur(50px);
+    /* Add blur effect */
+    border-radius: 10px;
+    border: 2px solid var(--white-color);
+    box-shadow: 0 4px 18px var(--light-silver-color);
+    width: 60%;
+    /* Center align the movie details section */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    /* Ensure text starts from the left */
+}
+
+#movieDetails img {
+    width: 50%;
+    /* Adjust image width */
+    border-radius: 10px;
+    display: block;
+    /* Ensure block display */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+#movieDetails h2 {
+    font-size: var(--font-big);
+    margin-bottom: 10px;
+}
+
+#favoritesList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 18px;
+}
+
+main h2 {
+    width: 100%;
+    text-align: center;
+    color: var(--green-color);
+}
+
+main .line {
+    font-size: var(--font-normal);
+    font-weight: var(--font-w8);
+    text-align: center;
+    margin-top: 2rem;
+    color: var(--light-silver-color);
+}
+
