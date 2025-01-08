@@ -3,7 +3,7 @@
 FilmSamlaren är en webbapplikation som tillåter användare att söka efter filmer med hjälp av Open Movie Database (OMDb) API. Användare kan se filmdetaljer, lägga till filmer i deras favoritlista och ta bort dem från favoritlistan.
 
 ## Figma länk:
-Figma länk: https://www.figma.com/design/yioTGsHtFvT3FMfiCexcnD/FilmSamlaren_-Movie-Search-Engin)?node-id=0-1&p=f&t=U5xrBNyNogC3omMz-0
+https://www.figma.com/design/yioTGsHtFvT3FMfiCexcnD/FilmSamlaren_-Movie-Search-Engin)?node-id=0-1&p=f&t=U5xrBNyNogC3omMz-0
 
 ## Komma igång/Steps
 
