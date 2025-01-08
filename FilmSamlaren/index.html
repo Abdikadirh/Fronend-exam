@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FilmSamlaren</title>
+    <meta name="Author" content="Abdikadir Abdullahi" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header role="banner">
+      <h1>FilmSamlaren</h1>
+      <input type="text" id="searchInput" placeholder="Search for movies..." />
+      <button id="searchButton">Search</button>
+      <p id="movieCount"></p>
+    </header>
+    <main role="main">
+      <div id="loadingSpinner" role="status" aria-live="polite"></div>
+      <!-- Loading spinner -->
+      <section id="movieList"></section>
+      <section id="movieDetails"></section>
+      <div class="line" role="separator">
+        ------------------------------------
+      </div>
+      <h2 role="heading">Favorites List</h2>
+      <section id="favoritesList"></section>
+      <!-- Favorites list placeholder -->
+      <video
+        id="background-video"
+        autoplay
+        loop
+        muted
+        poster="img/poster.png"
+        aria-hidden="true"
+      >
+        <source
+          src="https://videos.pexels.com/video-files/13721791/13721791-hd_1920_1080_60fps.mp4"
+          type="video/mp4"
+        />
+        Your browser does not support the video tag.
+      </video>
+    </main>
+    <footer role="contentinfo">
+      <p>&copy; 2025 FilmSamlaren. All rights reserved.</p>
+      <p>Made by Abdikadir Abdullahi</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
