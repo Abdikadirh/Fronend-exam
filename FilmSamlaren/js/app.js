@@ -134,3 +134,92 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   
+ // Update movie count with live region
+ function updateMovieCount(count) {
+  movieCount.textContent = `Found ${count} movie(s)`; // Update the movie count text
+}
+
+// Fetch movie details
+async function fetchMovieDetails(imdbID) {
+  try {
+    showLoadingSpinner(); // Show loading spinner
+    const response = await fetch(
+      `https://www.omdbapi.com/?i=${imdbID}&apikey=${apiKey}`
+    );
+    const movie = await response.json();
+    hideLoadingSpinner(); // Hide loading spinner
+    movieDetails.innerHTML = `
+            <div class="movie-item-content">
+                <h2>${movie.Title}</h2>
+                <p><span><strong>Year:</strong></span> ${movie.Year}</p>
+                <p><span><strong>Genre:</strong></span> ${movie.Genre}</p>
+                <p><span><strong>Plot:</strong></span> ${movie.Plot}</p>
+                <img src="${movie.Poster}" alt="${movie.Title}">
+                <button class="add-to-favorites">Add to Favorites</button>
+            </div>
+        `;
+    // Add event listener for the "Add to Favorites" button in movie details
+    const addToFavoritesButton = movieDetails.querySelector(
+      ".add-to-favorites"
+    );
+    addToFavoritesButton.addEventListener("click", () => saveFavorite(movie)); // Add to favorites on click
+  } catch (error) {
+    hideLoadingSpinner(); // Hide loading spinner
+    console.error("Error fetching movie details:", error); // Log error to console
+    movieDetails.innerHTML =
+      "<p>Something went wrong. Please try again later.</p>";
+  }
+}
+
+// Clear movie details
+function clearMovieDetails() {
+  movieDetails.innerHTML = ""; // Clear movie details
+}
+
+// Show loading spinner
+function showLoadingSpinner() {
+  loadingSpinner.style.display = "block"; // Show loading spinner
+}
+
+// Hide loading spinner
+function hideLoadingSpinner() {
+  loadingSpinner.style.display = "none"; // Hide loading spinner
+}
+
+displayFavorites(); // Display favorites on page load
+loadInitialMovies(); // Load initial movies
+
+// Load initial movies
+async function loadInitialMovies() {
+  try {
+    showLoadingSpinner(); // Show loading spinner
+    const response = await fetch(
+      `https://www.omdbapi.com/?s=batman&apikey=${apiKey}`
+    );
+    const data = await response.json();
+    hideLoadingSpinner(); // Hide loading spinner
+    if (data.Response === "True") {
+      displayMovies(data.Search); // Display movies in the list
+      updateMovieCount(data.Search.length); // Update movie count
+    }
+  } catch (error) {
+    hideLoadingSpinner(); // Hide loading spinner
+    console.error("Error loading initial movies:", error); // Log error to console
+  }
+}
+
+// Fetch multiple movie details concurrently using Promise.all
+async function fetchMovieDetailsBatch(imdbIDs) {
+  try {
+    const moviePromises = imdbIDs.map(id =>
+      fetch(`https://www.omdbapi.com/?i=${id}&apikey=${apiKey}`).then(res =>
+        res.json()
+      )
+    );
+    const movies = await Promise.all(moviePromises); // This resolves all movie details concurrently
+    displayMovieDetails(movies); // Display the movie details
+  } catch (error) {
+    console.error("Error fetching multiple movie details:", error); // Log error to console
+  }
+}
+});
