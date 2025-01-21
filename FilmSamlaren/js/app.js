@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "<p>Something went wrong. Please try again later.</p>";
     }
   }
-
+// Test-commit
   // Display movies in the list with live region
   function displayMovies(movies) {
     movieList.innerHTML = ""; // Clear the movie list
