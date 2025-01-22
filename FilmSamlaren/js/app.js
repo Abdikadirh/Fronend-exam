@@ -46,6 +46,12 @@ document.addEventListener("DOMContentLoaded", () => {
         button.disabled = true;
       }
 
+      // Scroll to the newly added movie in the favorites list
+      const newFavorite = document.querySelector(`#fav-${movie.imdbID}`);
+      if (newFavorite) {
+        newFavorite.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+
       // Show success message with movie title
       alert(
         `Your movie "${movie.Title}" has been added to the favorites list!`
@@ -59,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
     favorites.forEach(movie => {
       const movieItem = document.createElement("div");
       movieItem.className = "movie-item";
+      movieItem.id = `fav-${movie.imdbID}`; // Assign unique ID here
       movieItem.innerHTML = `
               <div class="movie-item-content">
                   <img src="${movie.Poster}" alt="${movie.Title}">
@@ -117,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "<p>Something went wrong. Please try again later.</p>";
     }
   }
-// Test-commit
+
   // Display movies in the list with live region
   function displayMovies(movies) {
     movieList.innerHTML = ""; // Clear the movie list
